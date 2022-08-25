@@ -16,4 +16,4 @@ import(
 	"gopkg.in/mgo.v2/bson"
 )
 
-var rnd *renderer.Render
+var Rnd *renderer.Render
