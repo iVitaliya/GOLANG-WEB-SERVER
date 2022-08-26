@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Aug 25 14:24:47 2022
+# Make data base, printed on Fri Aug 26 06:44:52 2022
 
 # Variables
 
@@ -51,7 +51,7 @@ GITHUB_GRAPHQL_URL = https://api.github.com/graphql
 # environment
 RUBY_HOME = /opt/ruby/lts
 # environment
-GITHUB_TOKEN = ghu_v0VReIwPZ4LS3xLm6RHYFIwu9hPJrw0t1Bke
+GITHUB_TOKEN = ghu_yvvTj1XAHJ4h22xdEZPwIMtX1GgE3548WGYH
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # environment
@@ -101,7 +101,7 @@ NUGET_XMLDOC_MODE = skip
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-6b13db99-a3c6-4973-95d3-eaa32a833e4e.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-b4e489dd-157f-437e-8dad-4d06d7c6ca61.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -183,7 +183,7 @@ JAVA_HOME = /opt/java/lts
 # default
 MAKE_VERSION := 4.2.1
 # environment
-GITHUB_CODESPACE_TOKEN = AKC3XX7L5YLEDRLP3JBHKCLDBAXM5ANCNFSM4ABZ26OA
+GITHUB_CODESPACE_TOKEN = AKC3XX54TP6QIRGWJZM3XGTDBEKIBANCNFSM4ABZ26OA
 # environment
 USER = codespace
 # environment
@@ -279,18 +279,18 @@ ContainerVersion = 12
 # environment
 NVM_RC_VERSION = 
 # variable set hash-table stats:
-# Load=134/1024=13%, Rehash=0, Collisions=14/159=9%
+ 
+# Load=134/1024=13%, Rehash=0, Collisions=15/162=9%
 
 # Pattern-specific Variable Values
- 
 
 # No pattern-specific variable values.
 
 # Directories
 
-# . (device 1792, inode 1572874): 14 files, no impossibilities.
+# . (device 1792, inode 1572874): 13 files, no impossibilities.
 
-# 14 files, no impossibilities in 1 directories.
+# 13 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -304,9 +304,17 @@ all: main
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
 
 .PHONY: run all
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.SUFFIXES:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -321,7 +329,7 @@ Makefile:
 # Not a target:
 main.go:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-25 12:55:09.778138201
+#  Last modified 2022-08-25 14:47:53.791176556
 #  File has been updated.
 #  Successfully updated.
 
@@ -341,9 +349,28 @@ run: main
 
 main: main.go go.mod
 #  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
 #  Last modified 2022-08-25 12:55:09.778138201
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := main
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := main.go go.mod
+# automatic
+# | := 
+# automatic
+# < := main.go
+# automatic
+# ^ := main.go go.mod
+# automatic
+# ? := main.go
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/12=8%
 #  recipe to execute (from 'Makefile', line 6):
 	go build -o $@ .
 
@@ -355,19 +382,19 @@ go.mod:
 #  Successfully updated.
 
 # files hash-table stats:
-# Load=9/1024=1%, Rehash=0, Collisions=0/29=0%
+# Load=9/1024=1%, Rehash=0, Collisions=0/30=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 21 / storage = 162 B / avg = 7 B
-# current buf: size = 8162 B / used = 162 B / count = 21 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 20 / storage = 155 B / avg = 7 B
+# current buf: size = 8162 B / used = 155 B / count = 20 / avg = 7 B
 
-# strcache performance: lookups = 39 / hit rate = 46%
+# strcache performance: lookups = 39 / hit rate = 48%
 # hash-table stats:
-# Load=21/8192=0%, Rehash=0, Collisions=1/39=3%
-# Finished Make data base on Thu Aug 25 14:24:47 2022
+# Load=20/8192=0%, Rehash=0, Collisions=1/39=3%
+# Finished Make data base on Fri Aug 26 06:44:52 2022
 
  
