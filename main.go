@@ -1,8 +1,11 @@
 package main // https://www.youtube.com/watch?v=3y3g1RBCLs4&list=PL5dTjWUk_cPbExff-KfZ18abspIgfcfmt&index=5
 
 import (
+	"context"
 	"fmt"
 	"net/http"
+	"os"
+	"os/signal"
 	"time"
 
 	"github.com/go-chi/chi"
@@ -24,10 +27,22 @@ func init() {
 	database.Db = sess.DB(database.DbName)
 }
 
+func homeHandler(w http.ResponseWriter, r *http.Request) {
+	err := routes.Rnd.Template(w, http.StatusOK, []string{"static/home.tpl"}, nil)
+	if err != nil {
+		routes.Logger.Error(fmt.Sprint(err))
+	}
+
+	// https://www.youtube.com/watch?v=3y3g1RBCLs4&list=PL5dTjWUk_cPbExff-KfZ18abspIgfcfmt&index=5
+}
+
 func main() {
+	stopChan := make(chan os.Signal)
+	signal.Notify(stopChan, os.Interrupt)
+
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
-	r.Get("/", homeHandler())
+	r.Get("/", homeHandler)
 	r.Mount("/todo", routes.TodoHandlers())
 
 	srv := &http.Server{
@@ -44,4 +59,13 @@ func main() {
 			routes.Logger.Debug("listen:" + fmt.Sprint(err))
 		}
 	}()
+
+	<-stopChan
+	routes.Logger.Debug("Shutting down server...")
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	srv.Shutdown(ctx)
+	defer cancel(
+		routes.Log(routes.DebugSeverity, "Server gracefully stopped")
+	)
 }

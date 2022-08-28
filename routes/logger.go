@@ -37,7 +37,7 @@ type ILogger struct {
 	Fatal   func(message string)
 }
 
-func log(Severity string, message ...interface{}) {
+func Log(Severity string, message ...interface{}) {
 	mer := func(m ...interface{}) string {
 		var mm string
 
@@ -88,43 +88,43 @@ var Logger *ILoggerInstance = &ILoggerInstance{
 	Configure: func(config ILoggerConfig) *ILogger {
 		return &ILogger{
 			Log: func(message string) {
-				log(config.Severity, message)
+				Log(config.Severity, message)
 				if config.Severity == FatalSeverity {
 					os.Exit(1)
 				}
 			},
 			Info: func(message string) {
-				log(InfoSeverity, message)
+				Log(InfoSeverity, message)
 			},
 			Debug: func(message string) {
-				log(DebugSeverity, message)
+				Log(DebugSeverity, message)
 			},
 			Warning: func(message string) {
-				log(WarningSeverity, message)
+				Log(WarningSeverity, message)
 			},
 			Error: func(message string) {
-				log(ErrorSeverity, message)
+				Log(ErrorSeverity, message)
 			},
 			Fatal: func(message string) {
-				log(FatalSeverity, message)
+				Log(FatalSeverity, message)
 				os.Exit(1)
 			},
 		}
 	},
 	Info: func(message string) {
-		log(InfoSeverity, message)
+		Log(InfoSeverity, message)
 	},
 	Debug: func(message string) {
-		log(DebugSeverity, message)
+		Log(DebugSeverity, message)
 	},
 	Warning: func(message string) {
-		log(WarningSeverity, message)
+		Log(WarningSeverity, message)
 	},
 	Error: func(message string) {
-		log(ErrorSeverity, message)
+		Log(ErrorSeverity, message)
 	},
 	Fatal: func(message string) {
-		log(FatalSeverity, message)
+		Log(FatalSeverity, message)
 		os.Exit(1)
 	},
 }
